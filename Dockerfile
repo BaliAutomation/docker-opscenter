@@ -7,13 +7,13 @@ MAINTAINER Abhinav Ajgaonkar <abhinav316@gmail.com>
 # Download and extract OpsCenter
 RUN \
   mkdir /opt/opscenter; \
-  wget -O - http://downloads.datastax.com/community/opscenter-5.1.0.tar.gz \
+  wget -O - http://downloads.datastax.com/community/opscenter-5.2.2.tar.gz \
   | tar xzf - --strip-components=1 -C "/opt/opscenter";
 
-ADD	. /src
+ADD . /src
 
 # Copy over daemons
-RUN	\
+RUN \
   mkdir -p /etc/service/opscenter; \
   cp /src/run /etc/service/opscenter/; \
   ln -s /opt/opscenter/log /var/log/opscenter;
